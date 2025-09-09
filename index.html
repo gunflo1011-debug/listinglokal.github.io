@@ -1,150 +1,332 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Listinglokal — German Listing Localization & SEO</title>
-  <meta name="description" content="Deutsche Produkttexte & Keyword-Optimierung für Etsy, Amazon, eBay & Shopify." />
+  <meta name="description" content="Deutsche Produkttexte & Long-Tail-Keywords für Etsy, Amazon & Shopify: klare Titel, nutzenorientierte Bullets, natürliche Beschreibungen. Lieferung als XLSX/CSV + PDF.">
+  <meta name="theme-color" content="#101827">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Listinglokal — German Listing Localization & SEO">
+  <meta property="og:description" content="Deutsche Produkttexte + Keyword-Optimierung für Etsy, Amazon, eBay & Shopify.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.listinglokal.de">
+
   <style>
-    :root{--bg:#0f172a;--card:#111827;--text:#e5e7eb;--muted:#9ca3af;--accent:#22c55e;--accent-2:#84cc16}
+    :root{
+      --bg:#0c1220;          /* Grundhintergrund */
+      --panel:#121a2d;       /* Kartenhintergrund */
+      --card:#111826;
+      --line:#2c3a52;
+      --muted:#9aa3b2;
+      --text:#e6e9ef;
+      --accent:#84cc16;      /* lime-400 */
+      --accent-ink:#08301a;
+      --shadow: 0 10px 25px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
     *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,var(--bg),#111827);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans";line-height:1.6}
-    a{color:var(--accent);text-decoration:none}
-    header{padding:32px 20px;max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-    .logo{font-weight:800;letter-spacing:.5px}
-    .chip{padding:6px 10px;border:1px solid #1f2937;border-radius:999px;color:var(--muted);font-size:14px}
-    .hero{padding:40px 20px 10px;max-width:1100px;margin:0 auto}
-    .title{font-size:40px;line-height:1.1;margin:12px 0 10px}
-    .subtitle{font-size:18px;color:var(--muted);max-width:800px}
-    .cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
-    .btn{background:var(--accent);color:#082f17;border:none;border-radius:12px;padding:14px 18px;font-weight:700;cursor:pointer}
-    .btn.secondary{background:transparent;border:1px solid #1f2937;color:var(--text)}
-    .section{padding:30px 20px;max-width:1100px;margin:0 auto}
-    .grid{display:grid;gap:16px}
-    @media(min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
-    .card{background:rgba(17,24,39,.7);border:1px solid #1f2937;border-radius:16px;padding:20px}
-    .card h3{margin-top:0}
-    .price{font-size:28px;font-weight:800;color:var(--accent-2)}
-    .small{font-size:14px;color:var(--muted)}
-    ul{padding-left:20px;margin:8px 0}
-    footer{padding:24px 20px;max-width:1100px;margin:0 auto;color:var(--muted);font-size:14px;border-top:1px solid #1f2937}
-    .legal{display:flex;gap:16px;flex-wrap:wrap}
-    .badge{display:inline-block;padding:4px 8px;border:1px solid #1f2937;border-radius:8px;color:var(--muted);font-size:12px}
-    .how{counter-reset:step}
-    .how li{list-style:none;margin:0 0 10px;padding-left:8px;position:relative}
-    .how li:before{counter-increment:step;content:counter(step);position:absolute;left:-28px;top:0;background:#1f2937;color:#e5e7eb;width:22px;height:22px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:12px;border:1px solid #334155}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(1200px 800px at 20% -10%, #13203e 0%, transparent 50%),
+                  radial-gradient(900px 700px at 120% 10%, #13203e 0%, transparent 40%),
+                  var(--bg);
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px; margin-inline:auto; padding:0 20px}
+    header.nav{
+      position:sticky; top:0; z-index:40;
+      backdrop-filter: blur(8px);
+      background:rgba(16,24,39,.6);
+      border-bottom:1px solid #1f2b41;
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:.8rem 0}
+    .brand{font-weight:700; letter-spacing:.2px}
+    .brand span{color:var(--accent)}
+    .nav-links a{margin-left:18px; color:#cbd5e1}
+    .nav-links a:hover{color:#fff}
+
+    /* Hero */
+    .hero{
+      position:relative; overflow:hidden;
+      padding: 80px 0 70px;
+      background:
+        radial-gradient(1000px 700px at 50% -10%, #1a2a4d 0%, transparent 55%),
+        linear-gradient(180deg, rgba(26,39,69,.55), rgba(16,24,39,0) 60%);
+      border-bottom:1px solid #1f2b41;
+    }
+    .badge{
+      display:inline-block; padding:.35rem .8rem; border:1px solid var(--line);
+      border-radius:999px; color:var(--accent); font-weight:700; background:rgba(132,204,22,.06)
+    }
+    h1{
+      margin:14px 0 10px; font-size: clamp(28px, 5vw, 52px); line-height:1.12; letter-spacing:.2px
+    }
+    .lead{color:#c7cfda; font-size: clamp(16px, 2.2vw, 20px)}
+    .cta-row{display:flex; gap:14px; margin-top:22px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:.9rem 1.1rem; border-radius:12px; border:1px solid var(--line);
+      background:var(--panel); color:#fff; box-shadow: var(--shadow);
+    }
+    .btn.primary{background:var(--accent); color:var(--accent-ink); border-color:transparent; font-weight:700}
+    .btn:hover{filter:brightness(1.05)}
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:20px}
+    .chip{border:1px solid var(--line); border-radius:999px; padding:.45rem .8rem; color:#cbd5e1; background:#101827}
+
+    /* Sections */
+    .section{padding:64px 0}
+    .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .card{
+      border:1px solid var(--line); background:var(--card); border-radius:var(--radius);
+      padding:22px; box-shadow: var(--shadow);
+    }
+    h2{margin:0 0 16px; font-size: clamp(22px, 3vw, 32px)}
+    .muted{color:var(--muted)}
+    ul.clean{list-style:none; padding:0; margin:0}
+    ul.clean li{margin:10px 0; display:flex; gap:10px}
+    .dot{width:10px; height:10px; background:#90a3bf; border-radius:50%; margin-top:.55rem}
+
+    /* Pricing */
+    .pricing .head{ text-align:center; margin-bottom:24px }
+    .pricing .cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px }
+    .price{color:var(--accent); font-weight:800; font-size:22px}
+    .pkg{font-weight:800; font-size:24px; margin-bottom:6px}
+
+    /* CTA sample */
+    .cta{
+      background:
+        radial-gradient(900px 600px at 20% -20%, #1e305c 0%, transparent 50%),
+        radial-gradient(800px 600px at 110% 10%, #1e305c 0%, transparent 50%),
+        var(--panel);
+      border:1px solid var(--line); border-radius:var(--radius);
+      padding:28px; text-align:center; box-shadow: var(--shadow);
+    }
+    .cta h3{margin-top:0; font-size: clamp(22px, 2.6vw, 30px)}
+    .cta p{margin:8px auto 16px; color:#cbd5e1; max-width:760px}
+
+    /* Gallery (optional images) */
+    .gallery{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px}
+    .gallery img{width:100%; height:auto; border-radius:12px; border:1px solid var(--line)}
+
+    /* Footer */
+    footer{border-top:1px solid #1f2b41; padding:32px 0; color:#cbd5e1}
+
+    /* Impressum / Datenschutz */
+    .legal h3{margin:0 0 8px}
+    .legal p{margin:.35rem 0}
+    .small{font-size:.95rem}
+    @media (max-width: 900px){
+      .grid3, .pricing .cards{grid-template-columns:1fr}
+    }
   </style>
+
+  <!-- JSON-LD (Organisation) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Listinglokal",
+    "url": "https://www.listinglokal.de",
+    "email": "info@listinglokal.de",
+    "description": "German Listing Localization & SEO für Etsy, Amazon & Shopify.",
+    "logo": "https://www.listinglokal.de/favicon.png",
+    "sameAs": []
+  }
+  </script>
 </head>
+
 <body>
-  <header>
-    <div class="logo">Listinglokal</div>
-    <div class="chip">DE • Etsy • Amazon • Shopify</div>
+  <!-- Navigation -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Listing<span>lokal</span></div>
+      <nav class="nav-links">
+        <a href="#pakete">Pakete</a>
+        <a href="#muster">Muster</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="#impressum">Impressum</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="badge">Produktisierte Dienstleistung</div>
-      <h1 class="title">Deutsche Produkttexte, die gefunden werden <span style="color:var(--accent)">und</span> verkaufen.</h1>
-      <p class="subtitle">Listing-Lokalisierung & Keyword-Optimierung für Etsy, Amazon, eBay & Shopify.
-      Klar, natürlich und plattformkonform – ohne Keyword-Spam.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <span class="badge">German Listing Localization & SEO</span>
+      <h1>Deutsche Produkttexte, die gefunden werden – und verkaufen.</h1>
+      <p class="lead">
+        Klar, natürlich & plattformkonform für Etsy, Amazon, eBay & Shopify. Long-Tail-Keywords ohne Keyword-Spam.
+        Lieferung als XLSX/CSV + PDF. 2 Revisionen inklusive.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:info@listinglokal.de?subject=Unverbindliche%20Anfrage%20Listinglokal&body=Hallo%20Florian,%0D%0A%0D%0Aich%20habe%20Interesse%20an%20der%20Optimierung%20meiner%20deutschen%20Produkt-Listings.%0D%0A%0D%0APlattform:%20(Etsy/Amazon/Shopify)%0D%0AProdukt:%0D%0AZielgruppe/Tonalit%C3%A4t:%0D%0A%0D%0ABesten%20Dank!">
+          Unverbindlich anfragen
+        </a>
+        <a class="btn" href="#pakete">Pakete ansehen</a>
+      </div>
+      <div class="chips">
+        <span class="chip">XLSX/CSV + PDF</span>
+        <span class="chip">2 Revisionen</span>
+        <span class="chip">48h-Rush optional</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Drei Nutzen-Karten -->
+  <section class="section">
+    <div class="container grid3">
+      <div class="card">
+        <h2>Was Sie bekommen</h2>
+        <ul class="clean">
+          <li><span class="dot"></span><span>Titel (Zeichenlimit-konform, Primär-Keyword)</span></li>
+          <li><span class="dot"></span><span>Bullets/Highlights (nutzenorientiert)</span></li>
+          <li><span class="dot"></span><span>Beschreibung (klar & compliance-freundlich)</span></li>
+          <li><span class="dot"></span><span>13 Etsy-Tags & Bild-Alt-Texte • Meta-Description</span></li>
+          <li><span class="dot"></span><span>Lieferung als XLSX/CSV + PDF</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Warum es wirkt</h2>
+        <ul class="clean">
+          <li><span class="dot"></span><span>Relevante Long-Tails (statt Keyword-Stuffing)</span></li>
+          <li><span class="dot"></span><span>Conversion-orientierte Struktur</span></li>
+          <li><span class="dot"></span><span>Stil & Tonalität zur Marke passend</span></li>
+          <li><span class="dot"></span><span>Schnelle Durchlaufzeiten (48h-Option)</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Für wen geeignet</h2>
+        <ul class="clean">
+          <li><span class="dot"></span><span>Etsy-Shops (DE & EU)</span></li>
+          <li><span class="dot"></span><span>Amazon-Seller & D2C-Brands</span></li>
+          <li><span class="dot"></span><span>Shopify & WooCommerce</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pakete -->
+  <section id="pakete" class="section pricing">
+    <div class="container">
+      <div class="head">
+        <h2>Pakete & Preise</h2>
+        <p class="muted">Basic • Standard • Premium — für Etsy, Amazon & Shopify</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="pkg">Basic</div>
+          <div class="price">29 € — 1 Listing</div>
+          <ul class="clean" style="margin-top:10px">
+            <li><span class="dot"></span><span>Titel (Zeichenlimit-konform)</span></li>
+            <li><span class="dot"></span><span>3 Bullets + Beschreibung</span></li>
+            <li><span class="dot"></span><span>5 Tags • 2 Revisionen</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="pkg">Standard</div>
+          <div class="price">79 € — 5 Listings</div>
+          <ul class="clean" style="margin-top:10px">
+            <li><span class="dot"></span><span>+ 10–15 Keyword-Ideen je Produkt</span></li>
+            <li><span class="dot"></span><span>Alt-Texte</span></li>
+            <li><span class="dot"></span><span>2 Revisionen</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="pkg">Premium</div>
+          <div class="price">149 € — 10 Listings</div>
+          <ul class="clean" style="margin-top:10px">
+            <li><span class="dot"></span><span>+ 13 Etsy-Tags</span></li>
+            <li><span class="dot"></span><span>Mini-Styleguide</span></li>
+            <li><span class="dot"></span><span>48h Rush optional (+20%)</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA: Muster-Listing -->
+  <section id="muster" class="section">
+    <div class="container">
       <div class="cta">
-        <a class="btn" href="mailto:info@listinglokal.de?subject=Anfrage%20German%20Listing%20Localization">Unverbindlich anfragen</a>
-        <a class="btn secondary" href="#pakete">Pakete ansehen</a>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="grid cols-3">
-        <div class="card">
-          <h3>Was Sie bekommen</h3>
-          <ul>
-            <li>Titel mit Primär-Keyword (Zeichenlimit-konform)</li>
-            <li>Bullets/Highlights (nutzenorientiert)</li>
-            <li>Beschreibung (klar & compliance-freundlich)</li>
-            <li>Tags/Alt-Texte & Meta-Description</li>
-            <li>XLSX/CSV + PDF-Lieferung</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Warum es wirkt</h3>
-          <ul>
-            <li>Relevante Long-Tails statt Keyword-Stuffing</li>
-            <li>Conversion-orientierte Struktur</li>
-            <li>Stil & Tonalität zur Marke passend</li>
-            <li>Schnelle Durchlaufzeiten (48h-Option)</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Für wen geeignet</h3>
-          <ul>
-            <li>Etsy-Shops (DE & EU)</li>
-            <li>Amazon-Seller & D2C-Brands</li>
-            <li>Shopify & WooCommerce</li>
-          </ul>
+        <h3>Kostenloses Muster-Listing in 24 Stunden</h3>
+        <p>Ich optimiere ein Produkt unverbindlich: Titel • Bullets • Beschreibung • Tags/Alt-Texte — damit Sie den Effekt testen können.</p>
+        <a class="btn primary" href="mailto:info@listinglokal.de?subject=Kostenloses%20Muster-Listing&body=Hallo%20Florian,%0D%0A%0D%0Ahier%20ist%20mein%20Produkt%20f%C3%BCr%20das%20Muster-Listing:%0D%0APlattform:%0D%0ALink/Bilder:%0D%0AZielgruppe/Tonalit%C3%A4t:%0D%0A%0D%0ADanke!">
+          Jetzt unverbindlich anfragen
+        </a>
+        <div class="chips" style="justify-content:center; margin-top:16px">
+          <span class="chip">DE-SEO ohne Keyword-Spam</span>
+          <span class="chip">Lieferung: XLSX/CSV + PDF</span>
+          <span class="chip">2 Revisionen inklusive</span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" id="pakete">
-      <h2>Pakete</h2>
-      <div class="grid cols-3">
-        <div class="card">
-          <h3>Basic</h3>
-          <div class="price">29 €</div>
-          <p class="small">1 Listing</p>
-          <ul>
-            <li>Titel, 3 Bullets, Beschreibung</li>
-            <li>5 Tags/Keywords</li>
-            <li>2 Revisionen</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Standard</h3>
-          <div class="price">79 €</div>
-          <p class="small">5 Listings</p>
-          <ul>
-            <li>Wie Basic + 10–15 Keyword-Ideen je Produkt</li>
-            <li>Bild-Alttexte</li>
-            <li>2 Revisionen</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Premium</h3>
-          <div class="price">149 €</div>
-          <p class="small">10 Listings</p>
-          <ul>
-            <li>Wie Standard + 13 Etsy-Tags</li>
-            <li>Mini-Styleguide</li>
-            <li>48h Rush optional (+20%)</li>
-          </ul>
-        </div>
+  <!-- (Optional) Galerie mit PNG-Bannern -->
+  <section class="section">
+    <div class="container">
+      <div class="gallery">
+        <!-- Diese Bilder werden angezeigt, wenn die Dateien im Repo liegen -->
+        <img src="fiverr_v2_hero.png" alt="Listinglokal – Title Banner" loading="lazy">
+        <img src="fiverr_v3_packages.png" alt="Pakete & Preise Banner" loading="lazy">
+        <img src="fiverr_v3_sample.png" alt="CTA Muster-Listing Banner" loading="lazy">
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section">
-      <h2>Ablauf</h2>
-      <ol class="how">
-        <li>Sie senden 1–2 Produkt-URLs & Wunsch-Zielgruppe.</li>
-        <li>Keyword-Recherche & Tonalitätsabgleich.</li>
-        <li>Erstellung von Titel, Bullets, Beschreibung & Tags.</li>
-        <li>QC-Check, Lieferung als XLSX/CSV + PDF.</li>
-        <li>2 Revisionen inklusive.</li>
-      </ol>
-    </section>
-
-    <section class="section">
+  <!-- Kontakt -->
+  <section id="kontakt" class="section">
+    <div class="container card">
       <h2>Kontakt</h2>
-      <p>E-Mail: <a href="mailto:info@listinglokal.de">info@listinglokal.de</a></p>
-      <p class="small">Hinweis: Kleinunternehmer gem. § 19 UStG – es wird keine Umsatzsteuer ausgewiesen.</p>
-    </section>
-  </main>
+      <p class="small">Schreiben Sie mir eine kurze Nachricht – ich melde mich zeitnah.</p>
+      <p><strong>E-Mail:</strong> <a href="mailto:info@listinglokal.de">info@listinglokal.de</a><br>
+         <strong>Telefon:</strong> <a href="tel:+4917632669729">+49&nbsp;(0)176&nbsp;32669729</a></p>
+    </div>
+  </section>
+
+  <!-- Impressum & Datenschutz -->
+  <section id="impressum" class="section legal">
+    <div class="container card">
+      <h2>Impressum</h2>
+      <h3>Angaben gemäß § 5 TMG</h3>
+      <p><strong>Florian Gundermann</strong><br>
+         Listinglokal – German Listing Localization & SEO<br>
+         Teichstraße 1a<br>
+         76707 Hambrücken<br>
+         Deutschland</p>
+      <p><strong>Telefon:</strong> +49 (0)176 32669729<br>
+         <strong>E-Mail:</strong> <a href="mailto:info@listinglokal.de">info@listinglokal.de</a></p>
+      <p><strong>Vertreten durch:</strong> Florian Gundermann</p>
+      <p><strong>Umsatzsteuer-ID:</strong> Derzeit noch keine Umsatzsteuer-Identifikationsnummer vergeben (wird nachgereicht, sobald verfügbar).</p>
+      <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
+         Florian Gundermann, Teichstraße 1a, 76707 Hambrücken</p>
+    </div>
+
+    <div class="container card" style="margin-top:16px">
+      <h2>Datenschutz</h2>
+      <p>Wir verarbeiten personenbezogene Daten (z. B. Name, E-Mail, Inhalte Ihrer Anfrage) ausschließlich zur Bearbeitung Ihrer Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO.</p>
+      <p>Eine Weitergabe an Dritte erfolgt nicht. Verantwortlich: Florian Gundermann (Anschrift wie oben). Sie haben Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Widerspruch (Art. 15–21 DSGVO). Kontakt: <a href="mailto:info@listinglokal.de">info@listinglokal.de</a></p>
+      <p>Beim Aufruf dieser Seite werden technisch notwendige Verbindungsdaten durch den Hosting-Provider verarbeitet (Server-Logs). Eine Einbindung externer Tracking-Dienste erfolgt nicht.</p>
+    </div>
+  </section>
 
   <footer>
-    <div>© 2025 Listinglokal</div>
-    <div class="legal">
-      <span><a href="#impressum">Impressum</a></span>
-      <span><a href="#datenschutz">Datenschutz</a></span>
+    <div class="container">
+      <div>© <span id="y"></span> Listinglokal – Florian Gundermann</div>
+      <div class="muted">info@listinglokal.de • www.listinglokal.de</div>
     </div>
   </footer>
+
+  <script>
+    // Jahreszahl
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

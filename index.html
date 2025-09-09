@@ -141,27 +141,41 @@
       </div>
     </div>
   </section>
+    <!-- CTA: Muster-Listing mit Formular -->
+<section id="muster" class="section">
+  <div class="container">
+    <div class="cta">
+      <h3>Kostenloses Muster-Listing in 24 Stunden</h3>
+      <p>Ich optimiere ein Produkt unverbindlich: Titel • Bullets • Beschreibung • Tags/Alt-Texte — damit Sie den Effekt testen können.</p>
 
-  <!-- Muster CTA -->
-  <section id="muster" class="section">
-    <div class="container">
-      <div class="cta">
-        <h3>Kostenloses Muster-Listing in 24 Stunden</h3>
-        <p>Ich optimiere ein Produkt unverbindlich: Titel • Bullets • Beschreibung • Tags/Alt-Texte — damit Sie den Effekt testen können.</p>
-        <a class="btn primary" href="mailto:info@listinglokal.de?subject=Kostenloses%20Muster-Listing">Jetzt unverbindlich anfragen</a>
+      <form action="send.php" method="POST" style="max-width:600px;margin:20px auto;text-align:left">
+        <label for="name">Ihr Name*</label>
+        <input type="text" id="name" name="name" required style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid var(--line);background:#101827;color:#fff;">
+
+        <label for="email">Ihre E-Mail*</label>
+        <input type="email" id="email" name="email" required style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid var(--line);background:#101827;color:#fff;">
+
+        <label for="plattform">Plattform</label>
+        <input type="text" id="plattform" name="plattform" placeholder="Etsy / Amazon / Shopify" style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid var(--line);background:#101827;color:#fff;">
+
+        <label for="produkt">Produkt / Link</label>
+        <textarea id="produkt" name="produkt" rows="3" style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid var(--line);background:#101827;color:#fff;"></textarea>
+
+        <label for="zielgruppe">Zielgruppe / Tonalität</label>
+        <textarea id="zielgruppe" name="zielgruppe" rows="2" style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid var(--line);background:#101827;color:#fff;"></textarea>
+
+        <button type="submit" class="btn primary" style="width:100%;margin-top:14px">Jetzt unverbindlich anfragen</button>
+      </form>
+
+      <div class="chips" style="justify-content:center; margin-top:16px">
+        <span class="chip">DE-SEO ohne Keyword-Spam</span>
+        <span class="chip">Lieferung: XLSX/CSV + PDF</span>
+        <span class="chip">2 Revisionen inklusive</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Kontakt -->
-  <section id="kontakt" class="section">
-    <div class="container card">
-      <h2>Kontakt</h2>
-      <p class="small">Schreiben Sie mir eine kurze Nachricht – ich melde mich zeitnah.</p>
-      <p><strong>E-Mail:</strong> <a href="mailto:info@listinglokal.de">info@listinglokal.de</a><br>
-         <strong>Telefon:</strong> <a href="tel:+4917632669729">+49 (0)176 32669729</a></p>
-    </div>
-  </section>
 
   <!-- Briefing Formular -->
   <section id="briefing" class="section">

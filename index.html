@@ -142,29 +142,37 @@
     </div>
   </section>
     <!-- CTA: Muster-Listing mit Formular -->
-<section id="muster" class="section">
+    <section id="muster" class="section">
   <div class="container">
     <div class="cta">
       <h3>Kostenloses Muster-Listing in 24 Stunden</h3>
       <p>Ich optimiere ein Produkt unverbindlich: Titel • Bullets • Beschreibung • Tags/Alt-Texte — damit Sie den Effekt testen können.</p>
 
-      <form action="send.php" method="POST" style="max-width:600px;margin:20px auto;text-align:left">
+      <!-- Formular: FormSubmit Integration -->
+      <form action="https://formsubmit.co/info@listinglokal.de" method="POST" class="form" style="max-width:600px; margin:20px auto; text-align:left">
+
+        <!-- FormSubmit Hidden Settings -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="Neue Muster-Listing Anfrage">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://www.listinglokal.de/danke.html">
+
         <label for="name">Ihr Name*</label>
-        <input type="text" id="name" name="name" required style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid var(--line);background:#101827;color:#fff;">
+        <input type="text" id="name" name="Name" required style="width:100%; padding:10px; margin-bottom:12px; border-radius:8px; border:1px solid #1f2b41; background:#111826; color:#fff">
 
         <label for="email">Ihre E-Mail*</label>
-        <input type="email" id="email" name="email" required style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid var(--line);background:#101827;color:#fff;">
+        <input type="email" id="email" name="Email" required style="width:100%; padding:10px; margin-bottom:12px; border-radius:8px; border:1px solid #1f2b41; background:#111826; color:#fff">
 
         <label for="plattform">Plattform</label>
-        <input type="text" id="plattform" name="plattform" placeholder="Etsy / Amazon / Shopify" style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid var(--line);background:#101827;color:#fff;">
+        <input type="text" id="plattform" name="Plattform" placeholder="Etsy / Amazon / Shopify" style="width:100%; padding:10px; margin-bottom:12px; border-radius:8px; border:1px solid #1f2b41; background:#111826; color:#fff">
 
         <label for="produkt">Produkt / Link</label>
-        <textarea id="produkt" name="produkt" rows="3" style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid var(--line);background:#101827;color:#fff;"></textarea>
+        <textarea id="produkt" name="Produkt" rows="3" style="width:100%; padding:10px; margin-bottom:12px; border-radius:8px; border:1px solid #1f2b41; background:#111826; color:#fff"></textarea>
 
         <label for="zielgruppe">Zielgruppe / Tonalität</label>
-        <textarea id="zielgruppe" name="zielgruppe" rows="2" style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid var(--line);background:#101827;color:#fff;"></textarea>
+        <textarea id="zielgruppe" name="Zielgruppe" rows="3" style="width:100%; padding:10px; margin-bottom:16px; border-radius:8px; border:1px solid #1f2b41; background:#111826; color:#fff"></textarea>
 
-        <button type="submit" class="btn primary" style="width:100%;margin-top:14px">Jetzt unverbindlich anfragen</button>
+        <button type="submit" class="btn primary" style="width:100%">Jetzt unverbindlich anfragen</button>
       </form>
 
       <div class="chips" style="justify-content:center; margin-top:16px">
@@ -175,6 +183,7 @@
     </div>
   </div>
 </section>
+
 
 
   <!-- Briefing Formular -->

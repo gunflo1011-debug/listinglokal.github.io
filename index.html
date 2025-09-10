@@ -1,11 +1,6 @@
 <!doctype html>
 <html lang="de">
 <head>
-
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-
-  
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Listinglokal — German Listing Localization & SEO</title>
@@ -195,6 +190,10 @@
     .link-card a:hover{text-decoration:underline}
     .link-icon{width:24px; height:24px; opacity:.9}
 
+
+    .alert-ok{background:#0f2a17;border:1px solid #14532d;color:#bbf7d0;padding:12px;border-radius:12px}
+    .alert-err{background:#2a1010;border:1px solid #7f1d1d;color:#fecaca;padding:12px;border-radius:12px}
+    
   </style>
 
   <!-- JSON-LD: Organisation -->
@@ -390,7 +389,7 @@
         <p>Ich optimiere ein Produkt unverbindlich: Titel • Bullets • Beschreibung • Tags/Alt-Texte — damit Sie den Effekt testen können.</p>
 
         <!-- Formular: FormSubmit Integration (funktioniert ohne Backend) -->
-        <form action="https://formsubmit.co/info@listinglokal.de" method="POST" class="form" id="musterForm">
+        <form action="https://formsubmit.co/ajax/info@listinglokal.de" method="POST" class="form" id="musterForm">
           <!-- FormSubmit Hidden Settings -->
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_subject" value="Neue Muster-Listing Anfrage">
@@ -419,6 +418,8 @@
 
           <button type="submit" class="btn primary" style="width:100%">Jetzt unverbindlich anfragen</button>
           <div class="hint">Mit dem Absenden stimmen Sie der Verarbeitung zum Zweck der Kontaktaufnahme zu (siehe Datenschutz).</div>
+        
+          <div id="submitStatus" aria-live="polite" style="margin-top:12px"></div>
         </form>
 
         <div class="chips" style="justify-content:center; margin-top:16px">
@@ -509,19 +510,45 @@
   <a href="#muster" class="float-cta" aria-label="Kostenloses Muster-Listing (24h)">Anfrage</a>
 
   
+  
   <script>
     // Jahreszahl
-    document.getElementById('y').textContent = new Date().getFullYear();
+    const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
 
-    // Plausible Custom Event auf Formular-Submit
+    // AJAX Submit via FormSubmit
     const form = document.getElementById('musterForm');
     if (form) {
-      form.addEventListener('submit', function() {
-        if (window.plausible) { plausible('Musterformular gesendet'); }
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        const status = document.getElementById('submitStatus');
+        status.className = ''; status.textContent = '';
+
+        // Basic honeypot check
+        const honey = form.querySelector('[name="_honey"]');
+        if (honey && honey.value) { return; }
+
+        const fd = new FormData(form);
+        // Optional: Absender-Kopie
+        const replyEmail = form.querySelector('#email')?.value;
+        if (replyEmail) fd.append('_cc', replyEmail);
+
+        try {
+          const res = await fetch(form.action, { method:'POST', headers:{ 'Accept':'application/json' }, body: fd });
+          if (res.ok) {
+            if (window.plausible) plausible('Musterformular gesendet');
+            window.location.href = '/danke.html';
+          } else {
+            status.className = 'alert-err';
+            status.textContent = 'Upps – das Absenden hat nicht geklappt. Bitte mailen Sie direkt an info@listinglokal.de.';
+          }
+        } catch (err) {
+          status.className = 'alert-err';
+          status.textContent = 'Upps – Netzwerkfehler. Bitte versuchen Sie es erneut oder schreiben Sie an info@listinglokal.de.';
+        }
       });
     }
 
-    // Link-Preview Card
+    // Link-Preview (falls vorhanden)
     function previewLink(url){
       const box = document.getElementById('linkPreview');
       if(!box) return;
@@ -535,6 +562,7 @@
         </div>`;
     }
   </script>
+
 
 </body>
 </html>

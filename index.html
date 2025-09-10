@@ -13,21 +13,21 @@
   <!-- Theming -->
   <meta name="theme-color" content="#101827"/>
 
-  
-  <!-- Open Graph / Social Preview -->
-  <meta property="og:title" content="Listinglokal – Deutsche Listing-Texte & SEO">
-  <meta property="og:description" content="Deutsche Produkttexte für Etsy, Amazon, eBay & Shopify. Long-Tails ohne Spam. XLSX/CSV + PDF. 2 Revisionen.">
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Listinglokal — German Listing Localization & SEO">
+  <meta property="og:description" content="Deutsche Produkttexte + Keyword-Optimierung für Etsy, Amazon, eBay & Shopify.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.listinglokal.de/">
-  <meta property="og:image" content="https://www.listinglokal.de/og-cover.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://www.listinglokal.de/bg_hero.jpg">
+  <meta property="og:locale" content="de_DE">
 
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Listinglokal – Deutsche Listing-Texte & SEO">
-  <meta name="twitter:description" content="Deutsche Produkttexte für Etsy, Amazon, eBay & Shopify. Long-Tails ohne Spam. XLSX/CSV + PDF. 2 Revisionen.">
-  <meta name="twitter:image" content="https://www.listinglokal.de/og-cover.png">
-<!-- (Optional) Favicon -->
+  <meta name="twitter:title" content="Listinglokal — German Listing Localization & SEO">
+  <meta name="twitter:description" content="Deutsche Produkttexte + Keyword-Optimierung für Etsy, Amazon, eBay & Shopify.">
+  <meta name="twitter:image" content="https://www.listinglokal.de/bg_hero.jpg">
+
+  <!-- (Optional) Favicon -->
   <link rel="icon" href="/favicon.png">
 
   <!-- (Optional) Plausible Analytics -->
@@ -361,8 +361,12 @@
           <label for="plattform">Plattform</label>
           <input type="text" id="plattform" name="Plattform" placeholder="Etsy / Amazon / Shopify">
 
-          <label for="produkt">Produkt / Link</label>
-          <textarea id="produkt" name="Produkt" rows="3" placeholder="Produktname, Link, Varianten, Besonderheiten"></textarea>
+          
+<label for="produkt">Produkt / Link</label>
+<input type="url" id="produkt" name="Produkt" placeholder="https://www.etsy.com/listing/123456" oninput="previewLink(this.value)">
+
+<div id="linkPreview" style="margin-top:16px;"></div>
+
 
           <label for="zielgruppe">Zielgruppe / Tonalität</label>
           <textarea id="zielgruppe" name="Zielgruppe" rows="3" placeholder="Zielgruppe, Brand-Voice, Besonderheiten"></textarea>
@@ -468,5 +472,40 @@
       });
     }
   </script>
+
+<style>
+.link-card {
+  border:1px solid #1f2b41;
+  border-radius:18px;
+  background:#111826;
+  padding:16px;
+  margin-top:10px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.35);
+}
+.link-card a {
+  color:#84cc16;
+  font-weight:600;
+  text-decoration:none;
+  word-break:break-word;
+}
+.link-card a:hover { text-decoration:underline; }
+</style>
+
+<script>
+function previewLink(url) {
+  const box = document.getElementById("linkPreview");
+  if (!url || !url.startsWith("http")) {
+    box.innerHTML = "";
+    return;
+  }
+  box.innerHTML = `
+    <div class="link-card">
+      <div style="font-size:0.95rem; color:#cbd5e1; margin-bottom:6px;"><strong>Vorschau:</strong></div>
+      <a href="${url}" target="_blank">${url}</a>
+    </div>
+  `;
+}
+</script>
 </body>
+
 </html>

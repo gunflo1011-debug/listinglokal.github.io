@@ -1,4 +1,29 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {[ENTFERNT]$to = "info@listinglokal.de"; // deine Ziel-E-Mail[ENTFERNT]$subject = "Neues Briefing – Listinglokal";[ENTFERNT]$plattform = $_POST["plattform"];[ENTFERNT]$produkt = $_POST["produkt"];[ENTFERNT]$tonalitaet = $_POST["tonalitaet"];[ENTFERNT]$deadline = $_POST["deadline"];[ENTFERNT]$keywords = $_POST["keywords"];[ENTFERNT]$message = "Neue Anfrage über das Briefing-Formular:\n\n";[ENTFERNT]$message .= "Plattform: $plattform\n";[ENTFERNT]$message .= "Produkt: $produkt\n";[ENTFERNT]$message .= "Tonalität: $tonalitaet\n";[ENTFERNT]$message .= "Deadline: $deadline\n";[ENTFERNT]$message .= "Keywords: $keywords\n";[ENTFERNT]$headers = "From: noreply@listinglokal.de\r\n";[ENTFERNT]$headers .= "Reply-To: info@listinglokal.de\r\n";[ENTFERNT]if (mail($to, $subject, $message, $headers)) {[ENTFERNT]header("Location: danke.html");[ENTFERNT]exit();[ENTFERNT]} else {[ENTFERNT]echo "Fehler beim Senden. Bitte versuchen Sie es später erneut.";[ENTFERNT]}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $to = "info@listinglokal.de"; // deine Ziel-E-Mail
+    $subject = "Neues Briefing – Listinglokal";
+
+    $plattform = $_POST["plattform"];
+    $produkt = $_POST["produkt"];
+    $tonalitaet = $_POST["tonalitaet"];
+    $deadline = $_POST["deadline"];
+    $keywords = $_POST["keywords"];
+
+    $message = "Neue Anfrage über das Briefing-Formular:\n\n";
+    $message .= "Plattform: $plattform\n";
+    $message .= "Produkt: $produkt\n";
+    $message .= "Tonalität: $tonalitaet\n";
+    $message .= "Deadline: $deadline\n";
+    $message .= "Keywords: $keywords\n";
+
+    $headers = "From: noreply@listinglokal.de\r\n";
+    $headers .= "Reply-To: info@listinglokal.de\r\n";
+
+    if (mail($to, $subject, $message, $headers)) {
+        header("Location: danke.html");
+        exit();
+    } else {
+        echo "Fehler beim Senden. Bitte versuchen Sie es später erneut.";
+    }
 }
 ?>

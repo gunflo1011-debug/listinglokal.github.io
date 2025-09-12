@@ -219,9 +219,10 @@
    "provider":{"@type":"Person","name":"Florian Gundermann"},
    "areaServed":"DE",
    "offers":[
-     {"@type":"Offer","name":"Basic (1 Listing)","price":"29","priceCurrency":"EUR"},
-     {"@type":"Offer","name":"Standard (5 Listings)","price":"79","priceCurrency":"EUR"},
-     {"@type":"Offer","name":"Premium (10 Listings)","price":"149","priceCurrency":"EUR"}
+    {"@type":"Offer","name":"Starter (1 Listing)","price":"19","priceCurrency":"EUR"}
+    {"@type":"Offer","name":"Seller (5 Listings)","price":"79","priceCurrency":"EUR"}
+    {"@type":"Offer","name":"Scale (10 Listings)","price":"149","priceCurrency":"EUR"}
+
    ]
   }
   </script>
@@ -338,47 +339,57 @@
   </section>
 
   <!-- Pakete -->
-  <section id="pakete" class="section pricing">
-    <div class="container">
-      <div class="head">
-        <h2>Pakete & Preise</h2>
-        <p class="muted">Basic • Standard • Premium — für Etsy, Amazon & Shopify</p>
-      </div>
-
-      <div class="cards">
-        <div class="card">
-          <div class="pkg">Basic</div>
-          <div class="price">29 € — 1 Listing</div>
-          <ul class="clean" style="margin-top:10px">
-            <li><span class="dot"></span><span>Titel (Zeichenlimit-konform)</span></li>
-            <li><span class="dot"></span><span>3 Bullets + Beschreibung</span></li>
-            <li><span class="dot"></span><span>5 Tags • 2 Revisionen</span></li>
-          </ul>
-        </div>
-
-        <div class="card popular">
-          <div class="badge-pop">Beliebt</div>
-          <div class="pkg">Standard</div>
-          <div class="price">79 € — 5 Listings</div>
-          <ul class="clean" style="margin-top:10px">
-            <li><span class="dot"></span><span>+ 10–15 Keyword-Ideen je Produkt</span></li>
-            <li><span class="dot"></span><span>Alt-Texte</span></li>
-            <li><span class="dot"></span><span>2 Revisionen</span></li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="pkg">Premium</div>
-          <div class="price">149 € — 10 Listings</div>
-          <ul class="clean" style="margin-top:10px">
-            <li><span class="dot"></span><span>+ 13 Etsy-Tags</span></li>
-            <li><span class="dot"></span><span>Mini-Styleguide</span></li>
-            <li><span class="dot"></span><span>48h Rush optional (+20%)</span></li>
-          </ul>
-        </div>
-      </div>
+<section id="pakete" class="section pricing">
+  <div class="container">
+    <div class="head">
+      <h2>Pakete & Preise</h2>
+      <p class="muted">Starter • Seller • Scale — für Etsy, Amazon & Shopify</p>
     </div>
-  </section>
+
+    <div class="cards">
+
+      <!-- Starter -->
+      <div class="card">
+        <div class="pkg">Starter</div>
+        <div class="price">19 € — 1 Listing</div>
+        <ul class="clean" style="margin-top:10px">
+          <li><span class="dot"></span><span>Titel (zeichenkonform)</span></li>
+          <li><span class="dot"></span><span>3 Bullets + Beschreibung</span></li>
+          <li><span class="dot"></span><span>5 Tags</span></li>
+          <li><span class="dot"></span><span>2 Revisionen</span></li>
+        </ul>
+      </div>
+
+      <!-- Seller -->
+      <div class="card popular">
+        <div class="badge-pop">Beliebt</div>
+        <div class="pkg">Seller</div>
+        <div class="price">79 € — 5 Listings</div>
+        <ul class="clean" style="margin-top:10px">
+          <li><span class="dot"></span><span>Alle Starter-Inhalte</span></li>
+          <li><span class="dot"></span><span>+ 10–15 Keyword-Ideen je Produkt</span></li>
+          <li><span class="dot"></span><span>Alt-Texte</span></li>
+          <li><span class="dot"></span><span>2 Revisionen</span></li>
+        </ul>
+      </div>
+
+      <!-- Scale -->
+      <div class="card">
+        <div class="pkg">Scale</div>
+        <div class="price">149 € — 10 Listings</div>
+        <ul class="clean" style="margin-top:10px">
+          <li><span class="dot"></span><span>Alle Seller-Inhalte</span></li>
+          <li><span class="dot"></span><span>+ 13 Etsy-Tags</span></li>
+          <li><span class="dot"></span><span>Mini-Styleguide</span></li>
+          <li><span class="dot"></span><span>48h-Rush optional (+20%)</span></li>
+        </ul>
+        <p class="muted" style="margin-top:10px">👉 Größere Mengen? <strong>Individuelle Preise</strong> auf Anfrage.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
   <!-- CTA: Muster-Listing (FormSubmit) -->
   <section id="muster" class="section">
@@ -468,7 +479,6 @@
       <h2>Kontakt</h2>
       <p class="small">Schreiben Sie mir eine kurze Nachricht – ich melde mich zeitnah.</p>
       <p><strong>E-Mail:</strong> <a href="mailto:info@listinglokal.de">info@listinglokal.de</a><br>
-         <strong>Telefon:</strong> <a href="tel:+4917632669729">+49&nbsp;(0)176&nbsp;32669729</a></p>
     </div>
   </section>
 
